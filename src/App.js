@@ -5,6 +5,7 @@ class ActualTemperature extends React.Component {
   state = {
     temp: "",
     name: "",
+    sky: "",
   };
   onClickChange = () => {
     const value = document.querySelector(".searchBar").value;
@@ -18,6 +19,7 @@ class ActualTemperature extends React.Component {
           this.setState({
             city: data.name,
             temperature: data.main.temp,
+            sky: data.weather.description,
           }),
         console.log(this.data)
       )
@@ -31,8 +33,9 @@ class ActualTemperature extends React.Component {
           Search
         </button>
         <div className="result">
-          <p>Miasto: {this.state.city}</p>
-          <p>Temperatura: {this.state.temperature}</p>
+          <p>City: {this.state.city}</p>
+          <p>Temperature: {this.state.temperature}</p>
+          <p>Sky: {this.state.sky}</p>
         </div>
       </div>
     );

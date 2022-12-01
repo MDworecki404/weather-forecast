@@ -1,5 +1,5 @@
 * {
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .App {
   width: 100vw;
@@ -35,4 +35,16 @@
 .searchBar:focus {
   width: 10rem;
   outline: none;
+}
+.result {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  width: 40%;
+  font-size: 2rem;
+  text-align: left;
+  align-items: left;
+  justify-content: left;
+  flex-direction: column;
+  color: white;
 }
