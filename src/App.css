@@ -1,38 +1,38 @@
+* {
+  font-family: "Courier New", Courier, monospace;
+}
 .App {
+  width: 100vw;
+  height: 100vh;
   text-align: center;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 60% 40%;
+  background-color: rgb(65, 65, 65);
+  background-size: cover;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.item-1 {
+  grid-column-start: span 4;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.item-2 {
+  grid-column-start: span 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.item-3 {
+  grid-column-start: span 2;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.searchBar {
+  margin: 2rem;
+  width: 4rem;
+  height: 1.5rem;
+  border-radius: 26px;
+  border: transparent;
+  transition: all 0.3s ease-out;
+}
+.searchBar:focus {
+  width: 10rem;
+  outline: none;
 }
