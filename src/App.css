@@ -7,37 +7,84 @@
   text-align: center;
   display: grid;
   grid-template-columns: 25% 50% 25%;
-  grid-template-rows: 60% 40%;
+  grid-template-rows: 100%;
   background-color: rgb(65, 65, 65);
   background-size: cover;
+  align-items: center;
+  justify-items: center;
 }
 .item-1 {
   grid-column-start: span 4;
 }
-.item-2 {
-  grid-column-start: span 3;
-  display: flex;
-  flex-direction: column;
+/* CSS */
+.button-6 {
   align-items: center;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
   justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
 }
-.item-3 {
-  grid-column-start: span 2;
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-6:hover,
+.button-6:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.button-6:hover {
+  transform: translateY(-1px);
+}
+
+.button-6:active {
+  background-color: #f0f0f1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
 }
 .searchBar {
-  margin: 2rem;
-  width: 4rem;
-  height: 1.5rem;
-  border-radius: 26px;
-  border: transparent;
-  transition: all 0.3s ease-out;
-}
-.searchBar:focus {
+  margin-left: 1rem;
+  font-family: inherit;
   width: 10rem;
-  outline: none;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  font-size: 1.3rem;
+  color: white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
 }
 .result {
-  margin-left: auto;
+  margin-left: 10rem;
   margin-right: auto;
   display: flex;
   width: 40%;
