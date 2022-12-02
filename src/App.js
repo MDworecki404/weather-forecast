@@ -5,13 +5,14 @@ class ActualTemperature extends React.Component {
   state = {
     temp: "",
     name: "",
+    speed: "",
     sky: "",
+    fail: "",
   };
   onClickChange = () => {
     const value = document.querySelector(".searchBar").value;
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=e099e7dd0be9664e07a2c9b917e48e73&units=metric`
-    )
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=e099e7dd0be9664e07a2c9b917e48e73&units=metric`;
+    fetch(apiUrl)
       .then((res) => {
         if (res.ok) {
           return res;
@@ -22,13 +23,20 @@ class ActualTemperature extends React.Component {
       .then(
         (data) =>
           this.setState({
-            city: data.name,
-            temperature: data.main.temp,
+            name: `City: ${data.name}`,
+            temperature: `Temperature: ${data.main.temp}`,
+            sky: `Sky: ${data.weather[0].main}(${data.weather[0].description})`,
+            speed: `Wind speed: ${data.wind.speed} m/s`,
           }),
         console.log(this.data)
       )
       .catch((err) => {
-        this.setState({ city: `City is not specified ${err}` });
+        this.setState({
+          name: ``,
+          temperature: "",
+          speed: "City is not specified",
+          fail: `${err}`,
+        });
       });
   };
   render() {
@@ -39,8 +47,11 @@ class ActualTemperature extends React.Component {
           Search
         </button>
         <div className="result">
-          <p>City: {this.state.city}</p>
-          <p>Temperature: {this.state.temperature}</p>
+          <p>{this.state.name}</p>
+          <p>{this.state.temperature}</p>
+          <p>{this.state.sky}</p>
+          <p>{this.state.speed}</p>
+          <span>{this.state.fail}</span>
         </div>
       </div>
     );
