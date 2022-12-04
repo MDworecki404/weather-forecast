@@ -14,7 +14,7 @@
   justify-items: center;
 }
 .item-1 {
-  grid-column-start: span 2;
+  grid-column-start: span 3;
 }
 /* CSS */
 .button-6 {
@@ -46,6 +46,7 @@
   width: auto;
 }
 .search {
+  grid-row-start: span 2;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -25,7 +25,7 @@ class ActualTemperature extends React.Component {
       .then((data) =>
         this.setState({
           name: `City: ${data.name}`,
-          temperature: `Temperature: ${data.main.temp}`,
+          temp: `Temperature: ${data.main.temp}`,
           sky: `Sky: ${data.weather[0].main}(${data.weather[0].description})`,
           speed: `Wind speed: ${data.wind.speed} m/s`,
         })
