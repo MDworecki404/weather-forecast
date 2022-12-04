@@ -34,6 +34,7 @@ class ActualTemperature extends React.Component {
         this.setState({
           name: ``,
           temp: ``,
+          sky: ``,
           speed: "City is not specified",
           fail: `${err}`,
         });
@@ -41,17 +42,19 @@ class ActualTemperature extends React.Component {
   };
   render() {
     return (
-      <div className="search">
-        <input type="text" className="searchBar" placeholder="City"></input>
-        <button className="button-6" onClick={this.onClickChange}>
-          Search
-        </button>
+      <div className="Main">
+        <div className="search">
+          <input type="text" className="searchBar" placeholder="City"></input>
+          <button className="button-6" onClick={this.onClickChange}>
+            Search
+          </button>
+        </div>
         <div className="result">
           <p>{this.state.name}</p>
           <p>{this.state.temp}</p>
           <p>{this.state.sky}</p>
           <p>{this.state.speed}</p>
-          <span>{this.state.fail}</span>
+          <p>{this.state.fail}</p>
         </div>
       </div>
     );
@@ -62,9 +65,7 @@ class Main extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="grid item-1">
-          <ActualTemperature></ActualTemperature>
-        </div>
+        <ActualTemperature></ActualTemperature>
       </div>
     );
   }
