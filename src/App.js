@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-
+const apiKEY = process.env.REACT_APP_API_KEY;
 class ActualTemperature extends React.Component {
   state = {
     temp: "",
@@ -11,7 +11,7 @@ class ActualTemperature extends React.Component {
   };
   onClickChange = () => {
     const value = document.querySelector(".searchBar").value;
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=e099e7dd0be9664e07a2c9b917e48e73&units=metric`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=${apiKEY}&units=metric`;
     fetch(apiUrl)
       .then((res) => {
         if (res.ok) {
