@@ -2,13 +2,26 @@ import React from "react";
 import "./App.css";
 const apiKEY = process.env.REACT_APP_API_KEY;
 
+type apiData = {
+  name: string;
+  main: {
+    temp: number;
+  };
+  weather: {
+    main: string;
+    description: string;
+  }[];
+  wind: {
+    speed: number;
+  };
+};
+
 class ActualTemperature extends React.Component {
   state = {
-    temp: "",
     name: "",
-    speed: "",
+    temp: "",
     sky: "",
-    fail: "",
+    speed: "",
   };
   onClickChange = () => {
     const value = document.querySelector(".searchBar") as HTMLInputElement;
@@ -22,14 +35,15 @@ class ActualTemperature extends React.Component {
         throw Error(res.statusText);
       })
       .then((res) => res.json())
-      .then((data) =>
+      .then((data: apiData) => {
         this.setState({
           name: `City: ${data.name}`,
           temp: `Temperature: ${data.main.temp}`,
           sky: `Sky: ${data.weather[0].main}(${data.weather[0].description})`,
           speed: `Wind speed: ${data.wind.speed} m/s`,
-        })
-      )
+          fail: "",
+        });
+      })
       .catch((err) => {
         this.setState({
           name: ``,
@@ -54,7 +68,6 @@ class ActualTemperature extends React.Component {
           <p>{this.state.temp}</p>
           <p>{this.state.sky}</p>
           <p>{this.state.speed}</p>
-          <p>{this.state.fail}</p>
         </div>
       </div>
     );
